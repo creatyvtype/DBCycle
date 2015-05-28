@@ -1,0 +1,98 @@
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+#wrapper {
+  width: 80em;
+  height: 50em;
+  background-color: gray;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+header #title {
+  font-size: 3em;
+}
+
+header #subtitle {
+  font-size: 1.5em;
+  margin-top: -1em;
+}
+
+.left {
+  padding-top: 3em;
+  padding-left: 16em;
+  float: left;
+  width: 24em;
+  text-align: center;
+}
+
+.right {
+  padding-top: 3em;
+  float: left;
+  padding-right: 16em;
+  width: 24em;
+  text-align: center;
+}
+
+button {
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  font-size: 1em;
+  width: 10em;
+  height: 3em;
+}
+
+#single-btn {
+
+}
+
+#multi-btn {
+
+}
+
+#single-img {
+  padding-top: 1em;
+  width: 15em;
+}
+
+#multi-img {
+  padding-top: 1em;
+  width: 15em;
+}
+
+.center {
+  text-align: center;
+  font-size: 2em;
+}
+
+#login_container {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2em;
+  width: 18em;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+#login_form {
+  text-align: center;
+}
+
+button#sign_in {
+  width: 5em;
+}
+
+h4.header {
+  font-size: 1.5em;
+}
+
+input {
+  margin: 1.5em;
+  border-radius: 2em;
+  text-align: center;
+}
+

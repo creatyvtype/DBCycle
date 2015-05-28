@@ -1,0 +1,15 @@
+<%= erb :_main_header %>
+
+<div class="left">
+  <form action='/sessions/new/single' method="get">
+    <button id="single-btn" type="submit" value="single">Single Player</button>
+  </form>
+  <img id="single-img" src="./imgs/cyclist.gif">
+</div>
+
+<div class="right">
+  <form action='/sessions/new/multi' method="get">
+    <button id="multi-btn">Multiplayer</button>
+  </form>
+  <img id="multi-img" src="./imgs/cyclist.gif">
+</div>
