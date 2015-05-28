@@ -54,22 +54,17 @@ button {
 
 }
 
-#single-img {
+.login-avatar {
   padding-top: 1em;
   width: 15em;
 }
 
-#multi-img {
-  padding-top: 1em;
-  width: 15em;
-}
-
-.center {
+.page_head {
   text-align: center;
   font-size: 2em;
 }
 
-#login_container {
+.center {
   text-align: center;
   border: 1px solid black;
   border-radius: 2em;
@@ -92,12 +87,24 @@ h4.header {
 }
 
 input {
-  margin: 1em;
+  margin: .5em 0 1em 0;
   border-radius: 2em;
   text-align: center;
 }
 
 #single_header {
-    margin:  .5em;
-  
+  margin: .5em;
+}
+
+.keys {
+  width: 3em;
+}
+
+#welcome-avatar {
+  width: 8em;
+}
+
+h5 {
+    margin:  0;
+
 }
