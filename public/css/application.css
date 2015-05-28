@@ -88,11 +88,16 @@ button#sign_in {
 
 h4.header {
   font-size: 1.5em;
+  margin:  1em 0 .5em 0;
 }
 
 input {
-  margin: 1.5em;
+  margin: 1em;
   border-radius: 2em;
   text-align: center;
 }
 
+#single_header {
+    margin:  .5em;
+  
+}
