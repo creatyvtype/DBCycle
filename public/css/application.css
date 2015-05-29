@@ -104,7 +104,22 @@ input {
   width: 8em;
 }
 
-h5 {
-    margin:  0;
+#handle {
+  margin:  0;
+}
 
+#login {
+
+}
+
+#newb {
+  display: none;
+}
+
+#welcome {
+  display: none;
+}
+
+.red {
+  color: red;
 }

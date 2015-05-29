@@ -1,9 +1,11 @@
-<div class="center">
+<div id="welcome" class="center">
   <h4 class="header">Welcome,</h4>
-  <h5>HANDLE GOES HERE</h5>
+  <h5 id="handle">HANDLE GOES HERE</h5>
   <h4 class="header">How to play:</h4>
   <img class="keys" src="../../imgs/up.png"><br>
   <img id="welcome-avatar" src="../../imgs/cyclist.gif"><br>
   <img class="keys" src="../../imgs/down.png"><br>
-  <button id="start" type="submit" value="start">Get to DBC!</button>
+  <form action='/game' method="get">
+    <button id="start" name="start">Get to DBC!</button>
+  </form>
 </div>

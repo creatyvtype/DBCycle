@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   include BCrypt
 
-  validates :email, format: { with: /\w+@[a-zA-Z_]+\.[a-zA-Z]{2,3}/, message: "invalid email format" }
-  validates :email, uniqueness: true, presence: true
-  validates :handle, uniqueness: true, presence: true
-  #validates :password, format: { with: /\w{6,}/, message: "password must be 6 or more characters, letters or numbers."}
+  validates :email, format: { with: /\w+@[a-zA-Z_]+\.[a-zA-Z]{2,3}/, message: "has invalid format" }
+  validates :email, uniqueness: true
+  validates :email, presence: true
+  validates :handle, uniqueness: true
+  validates :handle, presence: true
+  # validates :password, format: { with: /\w{6,}/, message: "password must be 6 or more characters, letters or numbers."}
 
   def password
     @password ||= Password.new(password_hash)
