@@ -24,7 +24,7 @@ $(document).ready(function() {
       if ($('span')) {
         $('span').remove()
       }
-      $('#login_form').prepend('<span class="red">' + response.responseText + '<br></span>')
+      $('#login_form').prepend('<span class="red">' + JSON.parse(response.responseText) + '<br></span>')
       }
     )
   })
@@ -50,11 +50,43 @@ $(document).ready(function() {
       if ($('span')) {
         $('span').remove()
       }
-      $('#create_form').prepend('<span class="red">' + response.responseText + '<br></span>');
-      })
+      var parsedResponse = JSON.parse(response.responseText)
+      for (var i=0; i<parsedResponse.length; i++) {
+        $('#create_form').prepend('<span class="red">' + parsedResponse[i] + '<br></span>');
+          };
+    });
+
   })
 
 
 
+
+  //GAME TIMER!!!!//
+  var timer = 0
+  var format = function(time) {
+    var m = s = ms = 0;
+    m = Math.floor( time / (60 * 100) );
+    time = time % (60 * 100);
+    s = Math.floor( time / 100 );
+    ms = time % 100;
+
+    var newTime = m + ":" + (s > 9 ? s : "0" + s) + ":" +  (ms > 9 ? ms : "0" + ms);
+    return newTime
+  }
+
+  var add = function() {
+    timer++;
+    $('time').html(format(timer));
+  }
+
+  $('#start_time').click(function(){
+      setInterval(add, 10)
+    })
+
+  var moveMini = function() {
+    $('#mini').animate({"left": "+=1em"})
+  };
+
+  var gameLength = 70;
 
 });

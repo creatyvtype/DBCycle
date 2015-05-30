@@ -123,3 +123,66 @@ input {
 .red {
   color: red;
 }
+
+#game_header {
+  position:relative;
+  margin-bottom: 2em;
+  padding-top: 1em;
+}
+
+#head1 {
+  font-size: 2em;
+  margin-left: 8em;
+  margin-right: 11em;
+  display: inline-block;
+}
+
+#head2 {
+  font-size: 1.8em;
+  margin-left: 20em;
+  display: inline-block;
+}
+
+#head3 {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+#start_time {
+  display: none;
+}
+
+#prog_head {
+  margin-left: 4em;
+  display: inline-block;
+  font-size: 2em;
+}
+
+#progress {
+  background-color: black;
+  width: 72em;
+  height: 1em;
+  margin: 0 4em;
+  position: relative;
+}
+
+#prog_finish {
+  background-color: white;
+  width: .5em;
+  height: 1em;
+  margin-left: 70em;
+}
+
+#track {
+  width: 71em;
+  height: 30em;
+  background-color: blue;
+  border: .5em solid black;
+  margin: 2em 4em;
+}
+
+#mini {
+  height: 2em;
+  bottom: 0em;
+  position: absolute;
+}
