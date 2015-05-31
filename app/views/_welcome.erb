@@ -2,9 +2,11 @@
   <h4 class="header">Welcome,</h4>
   <h5 id="handle">HANDLE GOES HERE</h5>
   <h4 class="header">How to play:</h4>
-  <img class="keys" src="../../imgs/up.png"><br>
+  <div id="key_container">
+    <img class="keys" id="up_key" src="../../imgs/up.png"><br>
+    <img class="keys" id="down_key" src="../../imgs/down.png">
+  </div>
   <img id="welcome-avatar" src="../../imgs/cyclist.gif"><br>
-  <img class="keys" src="../../imgs/down.png"><br>
   <form action='/game' method="get">
     <button id="start" name="start">Get to DBC!</button>
   </form>

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  //    LOGIN STUFF      *********************     LOGIN STUFF   ********
   $('button#create_link').click(function(){
     console.log("create button clicked");
     $('#login').hide();
@@ -57,11 +58,9 @@ $(document).ready(function() {
     });
 
   })
+// END LOGIN STUFF     *********************  END LOGIN STUFF   *********
 
-
-
-
-  //GAME TIMER!!!!//
+//GAME TIMER********************************  GAME TIMER  ****************
   var timer = 0
   var format = function(time) {
     var m = s = ms = 0;
@@ -83,10 +82,84 @@ $(document).ready(function() {
       setInterval(add, 10)
     })
 
-  var moveMini = function() {
-    $('#mini').animate({"left": "+=1em"})
-  };
+  // var moveMini = function() {
+  //   $('#mini').animate({"left": "+=1em"})
+  // };
 
   var gameLength = 70;
+//END GAME TIMER**************************   END GAME TIMER   ***********
+
+
+
+//AVATAR MOVEMENT
+  var avatar = $('#avatar')
+  $(document).keydown(function(key) {
+    switch(parseInt(key.which,10)) {
+      case 38:
+        if (avatar.position().top > 0) {
+          avatar.animate({top: "-=70px"}, 100);
+          break;
+        };
+    }
+    switch(parseInt(key.which,10)) {
+      case 40:
+        if (avatar.position().top < 350) {
+          avatar.animate({top: "+=70px"}, 100);
+          break;
+        };
+    }
+  })
+
+//ON PAGE LOAD
+  var centerText = $('.center_text')
+
+  var countDown = function() {
+
+  }
+
+/*****************
+GAME START
+1) run countdown (3 2 1 GO!)
+  a) run display 3, wait
+  b) run display 2, wait
+  c) run display 1, wait
+  d) run display GO, wait (3 secs have passed)
+  e) run display disappear, done
+2) start timer 3 sec after page load
+3) start game loop with counter 3 sec after page load
+
+  *************
+  ONE GAME LOOP
+  1) interval of 500ms
+  2) check if crash, run crash
+  3) check if win, break loop
+  4) if objects on left, disappear
+  5) move objects left
+  6) generate objects
+  7) move miniAvatar right
+  *************
+
+4) generate finishLine 10 loops shy of the end
+
+
+GAME FINISH
+*******************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
+

@@ -3,8 +3,8 @@ body {
 }
 
 #wrapper {
-  width: 80em;
-  height: 50em;
+  width: 1200px;
+  height: 600px;
   background-color: gray;
   margin: 0 auto;
 }
@@ -14,40 +14,48 @@ header {
 }
 
 header #title {
-  font-size: 3em;
+  font-size: 30px;
 }
 
 header #subtitle {
-  font-size: 1.5em;
-  margin-top: -1em;
+  font-size: 20px;
+  margin-top: -25px;
+  margin-bottom: 0;
 }
 
 .left {
-  padding-top: 3em;
-  padding-left: 16em;
+  padding-top: 50px;
+  padding-left: 200px;
   float: left;
-  width: 24em;
+  width: 400px;
   text-align: center;
 }
 
 .right {
-  padding-top: 3em;
+  padding-top: 50px;
   float: left;
-  padding-right: 16em;
-  width: 24em;
+  padding-right: 200px;
+  width: 400px;
   text-align: center;
 }
 
 button {
-  -moz-border-radius: 2em;
-  -webkit-border-radius: 2em;
-  font-size: 1em;
-  width: 10em;
-  height: 3em;
+  -border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  font-size: 15px;
+  width: 150px;
+  height: 40px;
 }
 
 #single-btn {
+    -border-radius:  30px;
 
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    font-size:  20px;
+    width:  200px;
+    height:  55px;
 }
 
 #multi-btn {
@@ -55,22 +63,23 @@ button {
 }
 
 .login-avatar {
-  padding-top: 1em;
-  width: 15em;
+  padding-top: 20px;
+  width: 250px;
 }
 
 .page_head {
   text-align: center;
-  font-size: 2em;
+  font-size: 25px;
+  margin-top: -10px;
 }
 
 .center {
   text-align: center;
   border: 1px solid black;
-  border-radius: 2em;
-  width: 18em;
+  border-radius: 40px;
+  width: 240px;
   margin: 0 auto;
-  padding-bottom: 2em;
+  padding-bottom: 30px;
 }
 
 #login_form {
@@ -78,30 +87,39 @@ button {
 }
 
 button#sign_in {
-  width: 5em;
+  width: 100px;
 }
 
 h4.header {
-  font-size: 1.5em;
-  margin:  1em 0 .5em 0;
+  font-size: 20px;
+  margin: 10px 0 10px 0;
 }
 
 input {
-  margin: .5em 0 1em 0;
-  border-radius: 2em;
+  margin: 9px 0 18px 0;
+  font-size: 15px;
+  border-radius: 30px;
   text-align: center;
 }
 
 #single_header {
-  margin: .5em;
+  margin: 17px;
 }
 
 .keys {
-  width: 3em;
+  width: 40px;
+}
+
+#up_key {
+  margin-bottom: 40px;
+}
+
+#down_key {
+  margin-bottom: 10px;
 }
 
 #welcome-avatar {
-  width: 8em;
+  width: 130px;
 }
 
 #handle {
@@ -120,32 +138,36 @@ input {
   display: none;
 }
 
+#key_container {
+  display: inline-block;
+  position: relative;
+}
+
 .red {
   color: red;
 }
 
 #game_header {
-  position:relative;
-  margin-bottom: 2em;
-  padding-top: 1em;
 }
 
 #head1 {
-  font-size: 2em;
-  margin-left: 8em;
-  margin-right: 11em;
+  font-size: 30px;
+  margin-left: 300px;
+  margin-right: 250px;
   display: inline-block;
 }
 
 #head2 {
-  font-size: 1.8em;
-  margin-left: 20em;
+  font-size: 25px;
+  margin-left: 650px;
   display: inline-block;
 }
 
 #head3 {
-  font-size: 1.5em;
+  font-size: 18px;
   display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
 }
 
 #start_time {
@@ -153,36 +175,102 @@ input {
 }
 
 #prog_head {
-  margin-left: 4em;
+  margin-left: 100px;
   display: inline-block;
-  font-size: 2em;
+  font-size: 20px;
 }
 
 #progress {
   background-color: black;
-  width: 72em;
-  height: 1em;
-  margin: 0 4em;
+  width: 1120px;
+  height: 15px;
+  margin: 0 40px;
   position: relative;
 }
 
 #prog_finish {
   background-color: white;
-  width: .5em;
-  height: 1em;
-  margin-left: 70em;
+  width: 8px;
+  height: 15px;
+  margin-left: 1100px;
 }
 
 #track {
-  width: 71em;
-  height: 30em;
+  width: 1100px;
+  height: 420px;
   background-color: blue;
-  border: .5em solid black;
-  margin: 2em 4em;
+  border: 10px solid black;
+  margin: 20px 40px;
 }
 
 #mini {
-  height: 2em;
-  bottom: 0em;
+  height: 30px;
+  bottom: 0;
   position: absolute;
+}
+
+.lane {
+  width: 1100px;
+  height: 70px;
+}
+
+#ln1 {
+  background-color: red;
+  position: relative;
+}
+
+#ln2 {
+  background-color: orange;
+}
+
+#ln3 {
+  background-color: yellow;
+}
+
+#ln4 {
+  background-color: green;
+}
+
+#ln5 {
+  background-color: blue;
+}
+
+#ln6 {
+  background-color: purple;
+}
+
+#grid {
+  width: 1100px;
+  height: 420px;
+  position: absolute;
+  top: 153px;
+  left: 215px;
+}
+
+#grid div {
+  width: 98px;
+  height: 418px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0;
+}
+
+#avatar {
+  width: 70px;
+  margin-left: 15px;
+  position: absolute;
+}
+
+.center_announcement {
+  position: absolute;
+  width: 1100px;
+  top: 265px;
+
+}
+
+.center_text {
+  font-size: 65px;
+  color: white;
+  text-align: center;
+  margin: 0;
 }
