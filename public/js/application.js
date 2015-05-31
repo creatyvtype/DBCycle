@@ -78,18 +78,39 @@ $(document).ready(function() {
     $('time').html(format(timer));
   }
 
-  $('#start_time').click(function(){
-      setInterval(add, 10)
-    })
+  var startTimer() {
+    setInterval(add, 10)
+  }
+
+  // $('#start_time').click(function(){
+  //     setInterval(add, 10)
+  //   })
 
   // var moveMini = function() {
   //   $('#mini').animate({"left": "+=1em"})
   // };
 
-  var gameLength = 70;
-//END GAME TIMER**************************   END GAME TIMER   ***********
+//  END GAME TIMER**************************   END GAME TIMER   ***********
 
 
+
+//     COUNTDOWN      **************************   COUNTDOWN   ***********
+  var countDown = function() {
+    centerText('3');
+    setTimeout(function(){centerText('2')}, 1000);
+    setTimeout(function(){centerText('1')}, 2000);
+    setTimeout(function(){centerText('GO!')}, 3000);
+    setTimeout(function(){centerText('')}, 4000);
+  }
+
+//GAME FUNCTIONS************************** GAME FUNCTIONS     ***********
+  var centerText = function(text) {
+    $('.center_text').html(text)
+  }
+
+//GAME VARIABLES**************************   GAME VARIABLES   ***********
+
+  var gameLength = 15;
 
 //AVATAR MOVEMENT
   var avatar = $('#avatar')
@@ -111,11 +132,7 @@ $(document).ready(function() {
   })
 
 //ON PAGE LOAD
-  var centerText = $('.center_text')
-
-  var countDown = function() {
-
-  }
+  window.onload = countDown(), console.log("OTHER THING");
 
 /*****************
 GAME START
