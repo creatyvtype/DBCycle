@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  //    LOGIN STUFF      *********************     LOGIN STUFF   ********
+
+//**********************************************  LOGIN STUFF  ****//
   $('button#create_link').click(function(){
     console.log("create button clicked");
     $('#login').hide();
@@ -58,61 +59,10 @@ $(document).ready(function() {
     });
 
   })
-// END LOGIN STUFF     *********************  END LOGIN STUFF   *********
-
-//GAME TIMER********************************  GAME TIMER  ****************
-  var timer = 0
-  var format = function(time) {
-    var m = s = ms = 0;
-    m = Math.floor( time / (60 * 100) );
-    time = time % (60 * 100);
-    s = Math.floor( time / 100 );
-    ms = time % 100;
-
-    var newTime = m + ":" + (s > 9 ? s : "0" + s) + ":" +  (ms > 9 ? ms : "0" + ms);
-    return newTime
-  }
-
-  var add = function() {
-    timer++;
-    $('time').html(format(timer));
-  }
-
-  var startTimer() {
-    setInterval(add, 10)
-  }
-
-  // $('#start_time').click(function(){
-  //     setInterval(add, 10)
-  //   })
-
-  // var moveMini = function() {
-  //   $('#mini').animate({"left": "+=1em"})
-  // };
-
-//  END GAME TIMER**************************   END GAME TIMER   ***********
 
 
+//******************************************   AVATAR MOVEMENT  ****//
 
-//     COUNTDOWN      **************************   COUNTDOWN   ***********
-  var countDown = function() {
-    centerText('3');
-    setTimeout(function(){centerText('2')}, 1000);
-    setTimeout(function(){centerText('1')}, 2000);
-    setTimeout(function(){centerText('GO!')}, 3000);
-    setTimeout(function(){centerText('')}, 4000);
-  }
-
-//GAME FUNCTIONS************************** GAME FUNCTIONS     ***********
-  var centerText = function(text) {
-    $('.center_text').html(text)
-  }
-
-//GAME VARIABLES**************************   GAME VARIABLES   ***********
-
-  var gameLength = 15;
-
-//AVATAR MOVEMENT
   var avatar = $('#avatar')
   $(document).keydown(function(key) {
     switch(parseInt(key.which,10)) {
@@ -131,19 +81,148 @@ $(document).ready(function() {
     }
   })
 
-//ON PAGE LOAD
-  window.onload = countDown(), console.log("OTHER THING");
 
-/*****************
-GAME START
-1) run countdown (3 2 1 GO!)
-  a) run display 3, wait
-  b) run display 2, wait
-  c) run display 1, wait
-  d) run display GO, wait (3 secs have passed)
-  e) run display disappear, done
-2) start timer 3 sec after page load
-3) start game loop with counter 3 sec after page load
+//**********************************************   GAME TIMER  ****//
+
+  var format = function(time) {
+    var m = s = ms = 0;
+    m = Math.floor( time / (60 * 100) );
+    time = time % (60 * 100);
+    s = Math.floor( time / 100 );
+    ms = time % 100;
+
+    var newTime = m + ":" + (s > 9 ? s : "0" + s) + ":" +  (ms > 9 ? ms : "0" + ms);
+    return newTime
+  }
+
+  var add = function() {
+    timer++;
+    $('time').html(format(timer));
+  }
+
+  var startTimer = function() {
+    timeClock = setInterval(add, 10);
+  }
+
+  var stopTimer = function() {
+    clearInterval(timeClock)
+  }
+
+
+//**********************************************   COUNTDOWN  ****//
+
+  var timer = 0;
+  var countDown = function() {
+    centerText('3');
+    setTimeout(function(){centerText('2')}, 1000);
+    setTimeout(function(){centerText('1')}, 2000);
+    setTimeout(function(){centerText('GO!')}, 3000);
+    setTimeout(function(){centerText('')}, 4000);
+  }
+
+
+//******************************************   GAME FUNCTIONS  ****//
+
+  var centerText = function(text) {
+    $('.center_text').html(text);
+  }
+
+  var startGameLoop = function() {
+    gameLoop();
+    loopGame = setInterval(gameLoop, gameSpeed);
+  }
+
+  var stopGameLoop = function() {
+    clearInterval(loopGame)
+  }
+
+//******************************************   GAME VARIABLES  ****//
+
+  //timer
+  //gameLength
+  //gameSpeed
+  //miniLength
+  //avatar
+  var gameLength = 20;
+  var gameSpeed = 500
+  var miniLength = "+=" + (1100 / gameLength) + "px"
+
+  // var Obstacle = function Obstacle(cssClass, code, speed) {
+  //   this.cssClass = cssClass;
+  //   this.code = code;
+  //   this.speed = speed;
+  // }
+
+  // Obstacle.prototype.move = function() {
+  //   this.animate({left: "-=100px"}, this.speed, 'linear')
+  // }
+  var finishLine = "<div class='obstacle' id='finish'></div>"
+  var bus = "<div class='bus obstacle'></div>"
+  var car = "<div class='car obstacle'></div>"
+  var pothole = "<div class='pothole obstacle'></div>"
+  var coffee = "<div class='coffee obstacle'></div>"
+  obstacles = [$('.bus'), $('.car'), $('.pothole'), $('.coffee')];
+
+
+//*********************************************    GAME LOOP    ****//
+  var move = function(obstacle) {
+    obstacle.animate({left: "-=100px"}, gameSpeed, 'linear')
+  }
+
+  var gameLoop = function() {
+    if (gameLength > 0) {
+
+      // $.each(obstacles, function(i, obstacle){
+      //   move(obstacle);
+      // })
+      move($('.obstacle'));
+      if (gameLength === 19) {
+        $('#ln2').append(bus);
+      }
+      if (gameLength === 11) {
+        //do I move this to the place where other obstacles get generated?
+        $('#ln1').append(finishLine);
+        obstacles.push($('#finish'));
+      };
+      if (gameLength === 18) {
+        $('#ln3').append(car);
+      }
+      var avatarTop = document.getElementById('avatar').getBoundingClientRect().top
+
+      /*
+      NEXT STEPS
+      -put images in
+      -create crashes
+      -randomly generate obstacles
+      */
+
+      $.each($('.obstacle'), function(i, obstacle) {
+        var obstacleRect = obstacle.getBoundingClientRect()
+        console.log(obstacleRect.left)
+        if (obstacleRect.top === avatarTop && obstacleRect.left < 350) {
+          console.log("MADE IT")
+          clearInterval(loopGame);
+        }
+        else if (obstacle.getBoundingClientRect().left < 300) {
+          obstacle.remove();
+        }
+        // console.log($('#avatar').position())
+      })
+
+      $('#mini').animate({left: miniLength}, gameSpeed, 'linear');
+      gameLength--;
+    }
+    else {
+      stopTimer();
+      clearInterval(loopGame);
+    };
+  };
+
+
+//******************************************    ON PAGE LOAD    ****//
+
+  window.onload = countDown(), setTimeout(function(){startTimer(), startGameLoop()}, 3000);
+/*************
 
   *************
   ONE GAME LOOP
@@ -155,8 +234,6 @@ GAME START
   6) generate objects
   7) move miniAvatar right
   *************
-
-4) generate finishLine 10 loops shy of the end
 
 
 GAME FINISH

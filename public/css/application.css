@@ -201,6 +201,7 @@ input {
   background-color: blue;
   border: 10px solid black;
   margin: 20px 40px;
+  position: relative;
 }
 
 #mini {
@@ -264,7 +265,7 @@ input {
 .center_announcement {
   position: absolute;
   width: 1100px;
-  top: 265px;
+  top: 110px;
 
 }
 
@@ -273,4 +274,20 @@ input {
   color: white;
   text-align: center;
   margin: 0;
+}
+
+#finish{
+  width: 10px;
+  height: 420px;
+  background-color: white;
+  position: absolute;
+  left: 1090px;
+}
+
+.obstacle {
+  width: 100px;
+  height: 70px;
+  background-color: pink;
+  position: absolute;
+  left: 1000px;
 }

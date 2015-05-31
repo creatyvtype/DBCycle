@@ -21,7 +21,7 @@ GAME PLAN (hehehe)
 4) finish line arrives after so many intervals
   a) time stops when that event happens
 
-
+*******MUST PUT OBJECT ON HTML THEN PUT SELECTOR IN OBJECTS ARRAY**************
   /*****************
 GAME START
 1) run countdown (3 2 1 GO!)
