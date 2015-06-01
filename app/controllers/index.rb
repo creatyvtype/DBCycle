@@ -35,6 +35,12 @@ post '/users/new' do
   end
 end
 
+post '/users/update' do
+  params[time].to_s
+  @user = current_user
+  p @user
+end
+
 get '/game' do
   @current_user = current_user
   erb :game

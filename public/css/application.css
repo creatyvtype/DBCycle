@@ -5,7 +5,7 @@ body {
 #wrapper {
   width: 1200px;
   height: 600px;
-  background-color: gray;
+  background-color: rgb(227, 197, 225);
   margin: 0 auto;
 }
 
@@ -15,12 +15,14 @@ header {
 
 header #title {
   font-size: 30px;
+  color: darkmagenta;
 }
 
 header #subtitle {
   font-size: 20px;
   margin-top: -25px;
   margin-bottom: 0;
+  color: crimson;
 }
 
 .left {
@@ -46,16 +48,14 @@ button {
   font-size: 15px;
   width: 150px;
   height: 40px;
+  background-color: yellow;
+  border-color: orange;
+  border-width: 4px;
+  color: cornflowerblue;
 }
 
 #single-btn {
-    -border-radius:  30px;
 
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    font-size:  20px;
-    width:  200px;
-    height:  55px;
 }
 
 #multi-btn {
@@ -71,6 +71,7 @@ button {
   text-align: center;
   font-size: 25px;
   margin-top: -10px;
+  color: chartreuse;
 }
 
 .center {
@@ -80,6 +81,8 @@ button {
   width: 240px;
   margin: 0 auto;
   padding-bottom: 30px;
+  background-color: rgb(105, 233, 251);
+  color: blue;
 }
 
 #login_form {
@@ -100,6 +103,8 @@ input {
   font-size: 15px;
   border-radius: 30px;
   text-align: center;
+  background-color: rgb(243, 235, 243);
+  color: rgb(88, 26, 255);
 }
 
 #single_header {
@@ -155,12 +160,14 @@ input {
   margin-left: 300px;
   margin-right: 250px;
   display: inline-block;
+  color: darkmagenta;
 }
 
 #head2 {
   font-size: 25px;
   margin-left: 650px;
   display: inline-block;
+  color: blue;
 }
 
 #head3 {
@@ -168,6 +175,7 @@ input {
   display: inline-block;
   vertical-align: top;
   margin-top: 10px;
+  color: crimson;
 }
 
 #start_time {
@@ -178,6 +186,7 @@ input {
   margin-left: 100px;
   display: inline-block;
   font-size: 20px;
+  color: darkblue;
 }
 
 #progress {
@@ -198,7 +207,7 @@ input {
 #track {
   width: 1100px;
   height: 420px;
-  background-color: blue;
+  background-color: black;
   border: 10px solid black;
   margin: 20px 40px;
   position: relative;
@@ -216,28 +225,29 @@ input {
 }
 
 #ln1 {
-  background-color: red;
+  background-color: rgb(247, 126, 111);
   position: relative;
+  height:  70px;
 }
 
 #ln2 {
-  background-color: orange;
+  background-color: rgb(250, 192, 85);
 }
 
 #ln3 {
-  background-color: yellow;
+  background-color: rgb(255, 255, 87);
 }
 
 #ln4 {
-  background-color: green;
+  background-color: rgb(116, 211, 116);
 }
 
 #ln5 {
-  background-color: blue;
+  background-color: rgb(91, 147, 245);
 }
 
 #ln6 {
-  background-color: purple;
+  background-color: rgb(183, 123, 190);
 }
 
 #grid {
@@ -275,22 +285,20 @@ input {
 
 .center_text {
   font-size: 65px;
-  color: white;
+  color: rgb(217, 14, 14);
   text-align: center;
   margin: 0;
 }
 
 #finish{
-  width: 10px;
   height: 420px;
-  background-color: white;
   position: absolute;
-  left: 1090px;
+  left: 900px;
 }
 
 .obstacle {
   position: absolute;
-  left: 1000px;
+  left: 900px;
 }
 
 #star {
@@ -300,4 +308,16 @@ input {
 
 .img {
   height: 70px;
+}
+
+.wide {
+  width: 200px;
+}
+
+time {
+  color: yellow;
+}
+
+label {
+  color: violet;
 }

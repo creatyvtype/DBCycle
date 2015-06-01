@@ -53,3 +53,7 @@ GAME FINISH
 
 
 IDEA: change game loop to add move function that allows each object only 11 cycles like finish line, then checks the locations, then either disappears them or runs crash
+
+add background image
+fix obstacle enter and exit
+make end screen
