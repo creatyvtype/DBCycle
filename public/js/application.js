@@ -137,8 +137,9 @@ $(document).ready(function() {
   var gameSpeed = normalSpeed
   var miniLength = "+=" + (1100 / gameLength) + "px"
   var finishLine = "<div id='finish'></div>"
-  var bus = "<div class='bus obstacle'>bus</div>"
+  var bus = "<div class='bus obstacle'><img class='img' src='./imgs/bus.gif'></div>"
   var car = "<div class='car obstacle'>car</div>"
+  var lowRider = "<div class='car obstacle'><img class='img' src='./imgs/lowrider.gif'></div>"
   var pothole = "<div class='pothole obstacle'>pthole</div>"
   var coffee = "<div class='coffee obstacle'>cafe</div>"
   obstacles = [$('.bus'), $('.car'), $('.pothole'), $('.coffee')];
@@ -171,11 +172,11 @@ $(document).ready(function() {
       if (gameLength === 29) {
         $('#ln2').append(pothole);
       }
-      if (gameLength === 28) {
+      if (gameLength === 27) {
         $('#ln3').append(coffee);
       }
       if (gameLength === 17) {
-        $('#ln4').append(car)
+        $('#ln4').append(lowRider)
       }
       if (gameLength === 16) {
         $('#ln5').append(bus)
@@ -195,12 +196,12 @@ $(document).ready(function() {
       })
 
       var blink = function() {
-        $('#avatar').fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250);
+        $('#avatar').fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250);
       }
 
       var busCrash = function() {
         stopGameLoop();
-        $('#avatar').hide( "explode", {pieces: 9 }, 1000);
+        $('#avatar').hide( "explode", {pieces: 9 }, 200);
         countDown();
         setTimeout(function(){crashingObstacle.remove(), blink()}, 1000);
         setTimeout(function() {startGameLoop(gameSpeed), $('#avatar').show()}, 4000);
@@ -232,15 +233,18 @@ $(document).ready(function() {
         //flash avatar
         // var flashLoop = setInterval(function(){flash()}, 200);
         // flash()
-        $('#avatar').css('background-image', './star.png')
+        $('#avatar_img').hide("explode", {pieces: 9 }, 200);
+        $('#star').show("explode", {pieces: 9 }, 200);
         crashingObstacle.remove();
         gameSpeed = fastSpeed;
+        gameLength-- //THIS WILL BE IMPORTANT... not reaching end with gameloop reset... does this need to happen before every reset?
         resetGameLoop(gameSpeed);
         setTimeout(function(){
           gameSpeed = normalSpeed;
           resetGameLoop(gameSpeed);
-          // clearInterval(flashLoop);
-        }, 5000);
+          $('#avatar_img').show("explode", {pieces: 9 }, 200);
+           $('#star').hide("explode", {pieces: 9 }, 200);
+        }, 6000);
       }
 
       if (crashingObstacle.length > 0) {

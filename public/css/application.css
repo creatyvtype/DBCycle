@@ -289,9 +289,15 @@ input {
 }
 
 .obstacle {
-  width: 100px;
-  height: 70px;
-  background-color: pink;
   position: absolute;
   left: 1000px;
+}
+
+#star {
+  display: none;
+  width: 70px;
+}
+
+.img {
+  height: 70px;
 }
