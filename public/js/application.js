@@ -107,11 +107,11 @@ $(document).ready(function() {
   var stopTimer = function() {
     clearInterval(timeClock)
   }
+  var timer = 0;
 
 
 //**********************************************   COUNTDOWN  ****//
 
-  var timer = 0;
   var countDown = function() {
     centerText('3');
     setTimeout(function(){centerText('2')}, 1000);
@@ -119,95 +119,147 @@ $(document).ready(function() {
     setTimeout(function(){centerText('GO!')}, 3000);
     setTimeout(function(){centerText('')}, 4000);
   }
-
-
-//******************************************   GAME FUNCTIONS  ****//
-
   var centerText = function(text) {
     $('.center_text').html(text);
   }
 
-  var startGameLoop = function() {
+
+//******************************************   GAME FUNCTIONS  ****//
+
+
+
+//******************************************   GAME VARIABLES  ****//
+
+  var gameLength = 30;
+  var normalSpeed = 500;
+  var slowSpeed = 1000;
+  var fastSpeed = 250;
+  var gameSpeed = normalSpeed
+  var miniLength = "+=" + (1100 / gameLength) + "px"
+  var finishLine = "<div id='finish'></div>"
+  var bus = "<div class='bus obstacle'>bus</div>"
+  var car = "<div class='car obstacle'>car</div>"
+  var pothole = "<div class='pothole obstacle'>pthole</div>"
+  var coffee = "<div class='coffee obstacle'>cafe</div>"
+  obstacles = [$('.bus'), $('.car'), $('.pothole'), $('.coffee')];
+
+
+//*********************************************    GAME LOOP    ****//
+  var startGameLoop = function(speed) {
     gameLoop();
-    loopGame = setInterval(gameLoop, gameSpeed);
+    loopGame = setInterval(gameLoop, speed);
   }
 
   var stopGameLoop = function() {
     clearInterval(loopGame)
   }
 
-//******************************************   GAME VARIABLES  ****//
-
-  //timer
-  //gameLength
-  //gameSpeed
-  //miniLength
-  //avatar
-  var gameLength = 20;
-  var gameSpeed = 500
-  var miniLength = "+=" + (1100 / gameLength) + "px"
-
-  // var Obstacle = function Obstacle(cssClass, code, speed) {
-  //   this.cssClass = cssClass;
-  //   this.code = code;
-  //   this.speed = speed;
-  // }
-
-  // Obstacle.prototype.move = function() {
-  //   this.animate({left: "-=100px"}, this.speed, 'linear')
-  // }
-  var finishLine = "<div class='obstacle' id='finish'></div>"
-  var bus = "<div class='bus obstacle'></div>"
-  var car = "<div class='car obstacle'></div>"
-  var pothole = "<div class='pothole obstacle'></div>"
-  var coffee = "<div class='coffee obstacle'></div>"
-  obstacles = [$('.bus'), $('.car'), $('.pothole'), $('.coffee')];
-
-
-//*********************************************    GAME LOOP    ****//
-  var move = function(obstacle) {
-    obstacle.animate({left: "-=100px"}, gameSpeed, 'linear')
+  var resetGameLoop = function(speed) {
+    stopGameLoop();
+    startGameLoop(speed);
   }
 
+
   var gameLoop = function() {
+    var move = function(obstacle) {
+      obstacle.animate({left: "-=100px"}, gameSpeed, 'linear')
+    }
     if (gameLength > 0) {
 
-      // $.each(obstacles, function(i, obstacle){
-      //   move(obstacle);
-      // })
       move($('.obstacle'));
-      if (gameLength === 19) {
-        $('#ln2').append(bus);
+      move($('#finish'));
+      if (gameLength === 29) {
+        $('#ln2').append(pothole);
       }
+      if (gameLength === 28) {
+        $('#ln3').append(coffee);
+      }
+      if (gameLength === 17) {
+        $('#ln4').append(car)
+      }
+      if (gameLength === 16) {
+        $('#ln5').append(bus)
+      }
+
       if (gameLength === 11) {
-        //do I move this to the place where other obstacles get generated?
         $('#ln1').append(finishLine);
         obstacles.push($('#finish'));
       };
-      if (gameLength === 18) {
-        $('#ln3').append(car);
-      }
-      var avatarTop = document.getElementById('avatar').getBoundingClientRect().top
 
-      /*
-      NEXT STEPS
-      -put images in
-      -create crashes
-      -randomly generate obstacles
-      */
-
-      $.each($('.obstacle'), function(i, obstacle) {
-        var obstacleRect = obstacle.getBoundingClientRect()
-        console.log(obstacleRect.left)
-        if (obstacleRect.top === avatarTop && obstacleRect.left < 350) {
-          console.log("MADE IT")
-          clearInterval(loopGame);
-        }
-        else if (obstacle.getBoundingClientRect().left < 300) {
-          obstacle.remove();
-        }
-        // console.log($('#avatar').position())
+      var crashingObstacle = $('.obstacle').filter(function(){
+        return ( parseInt($(this).css('left'), 10) <= 115 && Math.round($(this).position().top) == Math.round($('#avatar').position().top));
       })
+
+      var endingObstacles = $('.obstacle').filter(function(){
+        return parseInt($(this).css('left'), 10) <= 15;
+      })
+
+      var blink = function() {
+        $('#avatar').fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250);
+      }
+
+      var busCrash = function() {
+        stopGameLoop();
+        $('#avatar').hide( "explode", {pieces: 9 }, 1000);
+        countDown();
+        setTimeout(function(){crashingObstacle.remove(), blink()}, 1000);
+        setTimeout(function() {startGameLoop(gameSpeed), $('#avatar').show()}, 4000);
+      }
+
+      var carCrash = function() {
+        stopGameLoop();
+        $('#avatar_img').hide( "scale", {percentage: 20, direction: 'vertical', origin: ['bottom']}, 500 );
+        countDown();
+        setTimeout(function(){crashingObstacle.remove(), blink()}, 1000);
+        setTimeout(function() {startGameLoop(gameSpeed)}, 4000);
+      }
+
+      var hitPothole = function() {
+        $('#avatar').effect("bounce", { times: 5 }, "slow")
+        crashingObstacle.remove();
+        gameSpeed = slowSpeed;
+        resetGameLoop(gameSpeed);
+        setTimeout(function(){
+          gameSpeed = normalSpeed;
+          resetGameLoop(gameSpeed);
+        }, 6000);
+      }
+
+      var flash = function() {
+        $('#avatar').effect('highlight',{color:"white"}, 100);
+      }
+      var getCoffee = function() {
+        //flash avatar
+        // var flashLoop = setInterval(function(){flash()}, 200);
+        // flash()
+        $('#avatar').css('background-image', './star.png')
+        crashingObstacle.remove();
+        gameSpeed = fastSpeed;
+        resetGameLoop(gameSpeed);
+        setTimeout(function(){
+          gameSpeed = normalSpeed;
+          resetGameLoop(gameSpeed);
+          // clearInterval(flashLoop);
+        }, 5000);
+      }
+
+      if (crashingObstacle.length > 0) {
+
+        if (crashingObstacle.attr('class') == "bus obstacle") {
+          busCrash();
+        }
+        else if (crashingObstacle.attr('class') == "car obstacle") {
+          carCrash();
+        }
+        else if (crashingObstacle.attr('class') == "pothole obstacle") {
+          hitPothole();
+        }
+        else if (crashingObstacle.attr('class') == "coffee obstacle") {
+          getCoffee();
+        }
+      }
+
+      endingObstacles.remove();
 
       $('#mini').animate({left: miniLength}, gameSpeed, 'linear');
       gameLength--;
@@ -221,7 +273,7 @@ $(document).ready(function() {
 
 //******************************************    ON PAGE LOAD    ****//
 
-  window.onload = countDown(), setTimeout(function(){startTimer(), startGameLoop()}, 3000);
+  window.onload = countDown(), setTimeout(function(){startTimer(), startGameLoop(gameSpeed)}, 3000);
 /*************
 
   *************

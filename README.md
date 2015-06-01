@@ -49,3 +49,7 @@ GAME START
 
 GAME FINISH
 *******************/
+
+
+
+IDEA: change game loop to add move function that allows each object only 11 cycles like finish line, then checks the locations, then either disappears them or runs crash

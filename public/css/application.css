@@ -262,6 +262,10 @@ input {
   position: absolute;
 }
 
+#avatar_img {
+  width: 70px;
+}
+
 .center_announcement {
   position: absolute;
   width: 1100px;
