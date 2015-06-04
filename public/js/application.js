@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 //******************************************   GAME VARIABLES  ****//
 
-  var gameLength = 20;
+  var gameLength = 100;
   var normalSpeed = 500;
   var slowSpeed = 1000;
   var fastSpeed = 250;
