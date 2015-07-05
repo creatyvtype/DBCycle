@@ -123,11 +123,6 @@ $(document).ready(function() {
     $('.center_text').html(text);
   }
 
-
-//******************************************   GAME FUNCTIONS  ****//
-
-
-
 //******************************************   GAME VARIABLES  ****//
 
   var gameLength = 100;
@@ -186,11 +181,6 @@ $(document).ready(function() {
     obstacle.animate({left: "-=100px"}, gameSpeed, 'linear')
   }
 
-  // var moveSlow = function(obstacle) {
-  //   obstacle.animate({left: "-=50px"}, gameSpeed, 'linear')
-  // }
-
-
   var gameLoop = function() {
     if (gameLength > 0) {
 
@@ -220,12 +210,16 @@ $(document).ready(function() {
       // })
 
       var blink = function() {
-        $('#avatar_img').fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+        $('#avatar_img').show()
+        $('#gravatar').show()
+        $('#avatar').fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
       }
 
       var busCrash = function() {
         stopGameLoop();
-        $('#avatar').hide( "explode", {pieces: 9 }, 200);
+        $('#star').hide( "explode", {pieces: 9 }, 200);
+        $('#avatar_img').hide( "explode", {pieces: 9 }, 200);
+        $('#gravatar').hide( "explode", {pieces: 9 }, 200);
         setTimeout(function(){$('#avatar').show()}, 500)
         countDown();
         setTimeout(function(){crashingObstacle.remove(), blink()}, 1000);
@@ -234,14 +228,20 @@ $(document).ready(function() {
 
       var carCrash = function() {
         stopGameLoop();
+        $('#star').hide( "scale", {percentage: 20, direction: 'vertical', origin: ['bottom']}, 400 );
         $('#avatar_img').hide( "scale", {percentage: 20, direction: 'vertical', origin: ['bottom']}, 400 );
+        $('#gravatar').hide( "scale", {percentage: 20, direction: 'vertical', origin: ['bottom']}, 400 );
         countDown();
         setTimeout(function(){crashingObstacle.remove(), blink()}, 1000);
         setTimeout(function() {startGameLoop(gameSpeed)}, 4000);
       }
 
       var hitPothole = function() {
-        $('#avatar').effect("bounce", { times: 5 }, "slow")
+        $('#star').hide();
+        $('#gravatar').show();
+        $('#avatar_img').show();
+        $('#gravatar').effect("bounce", { times: 5 }, "slow")
+        $('#avatar_img').effect("bounce", { times: 5 }, "slow")
         crashingObstacle.remove();
         gameSpeed = slowSpeed;
         resetGameLoop(gameSpeed);
@@ -253,6 +253,7 @@ $(document).ready(function() {
 
       var getCoffee = function() {
         $('#avatar_img').hide("explode", {pieces: 9 }, 200);
+        $('#gravatar').hide("explode", {pieces: 9 }, 200);
         $('#star').show("explode", {pieces: 9 }, 200);
         crashingObstacle.remove();
         gameSpeed = fastSpeed;
@@ -261,6 +262,7 @@ $(document).ready(function() {
           gameSpeed = normalSpeed;
           resetGameLoop(gameSpeed);
           $('#avatar_img').show("explode", {pieces: 9 }, 200);
+          $('#gravatar').show("explode", {pieces: 9 }, 200);
            $('#star').hide("explode", {pieces: 9 }, 200);
         }, 6000);
       }

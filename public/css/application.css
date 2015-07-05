@@ -1,323 +1,352 @@
+/*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.debug {
+   border: 1px solid red;
+   background-color: rgb(219, 219, 219);
+}
+
+/* global styles */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
-  font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 100%;
+    font-style: normal;
+    color: #444;
 }
 
-#wrapper {
-  width: 1200px;
-  height: 600px;
-  background-color: rgb(227, 197, 225);
-  margin: 0 auto;
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
 }
 
-header {
-  text-align: center;
+h1 {
+    margin-bottom: 0.6em;
+
+    font-size: 3.8em;
+    font-weight: 400;
 }
 
-header #title {
-  font-size: 30px;
-  color: darkmagenta;
+h2 {
+    margin-bottom: 1em;
+
+    font-size: 1.6em;
+    font-weight: 400;
 }
 
-header #subtitle {
-  font-size: 20px;
-  margin-top: -25px;
-  margin-bottom: 0;
-  color: crimson;
+h3 {
+    margin-bottom: 1.2em;
+
+    font-size: 1.2em;
+    font-weight: 300;
 }
 
-.left {
-  padding-top: 50px;
-  padding-left: 200px;
-  float: left;
-  width: 400px;
-  text-align: center;
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
 }
 
-.right {
-  padding-top: 50px;
-  float: left;
-  padding-right: 200px;
-  width: 400px;
-  text-align: center;
+a:hover, a:active {
+    text-decoration: underline;
 }
 
-button {
-  -border-radius: 30px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  font-size: 15px;
-  width: 150px;
-  height: 40px;
-  background-color: yellow;
-  border-color: orange;
-  border-width: 4px;
-  color: cornflowerblue;
+/* atomic classes */
+.logo-lg { width: 10em;}
+
+.ta-c { text-align: center; }
+
+.mt-sm { margin-top: 1em; }
+.mt-std { margin-top: 1.5em; }
+.mt-lg { margin-top: 2em; }
+.mt-xl { margin-top: 3em; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: 1em; }
+.mb-std { margin-bottom: 1.5em; }
+.mb-lg { margin-bottom: 2em; }
+.mb-xl { margin-bottom: 3em; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers:
+ */
+
+.hidden {
+    display: none !important;
 }
 
-#single-btn {
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
 
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
-#multi-btn {
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
 
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
 }
 
-.login-avatar {
-  padding-top: 20px;
-  width: 250px;
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
 }
 
-.page_head {
-  text-align: center;
-  font-size: 25px;
-  margin-top: -10px;
-  color: chartreuse;
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
 
-.center {
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 40px;
-  width: 240px;
-  margin: 0 auto;
-  padding-bottom: 30px;
-  background-color: rgb(105, 233, 251);
-  color: blue;
+.clearfix:after {
+    clear: both;
 }
 
-#login_form {
-  text-align: center;
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
 }
 
-button#sign_in {
-  width: 100px;
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
 }
 
-h4.header {
-  font-size: 20px;
-  margin: 10px 0 10px 0;
-}
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
 
-input {
-  margin: 9px 0 18px 0;
-  font-size: 15px;
-  border-radius: 30px;
-  text-align: center;
-  background-color: rgb(243, 235, 243);
-  color: rgb(88, 26, 255);
-}
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
 
-#single_header {
-  margin: 17px;
-}
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
 
-.keys {
-  width: 40px;
-}
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
 
-#up_key {
-  margin-bottom: 40px;
-}
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
 
-#down_key {
-  margin-bottom: 10px;
-}
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
 
-#welcome-avatar {
-  width: 130px;
-}
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
 
-#handle {
-  margin:  0;
-}
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
 
-#login {
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
 
-}
+    thead {
+        display: table-header-group;
+    }
 
-#newb {
-  display: none;
-}
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
 
-#welcome {
-  display: none;
-}
+    img {
+        max-width: 100% !important;
+    }
 
-#key_container {
-  display: inline-block;
-  position: relative;
-}
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
 
-.red {
-  color: red;
-}
-
-#game_header {
-}
-
-#head1 {
-  font-size: 30px;
-  margin-left: 300px;
-  margin-right: 250px;
-  display: inline-block;
-  color: darkmagenta;
-}
-
-#head2 {
-  font-size: 25px;
-  margin-left: 650px;
-  display: inline-block;
-  color: blue;
-}
-
-#head3 {
-  font-size: 18px;
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 10px;
-  color: crimson;
-}
-
-#start_time {
-  display: none;
-}
-
-#prog_head {
-  margin-left: 100px;
-  display: inline-block;
-  font-size: 20px;
-  color: darkblue;
-}
-
-#progress {
-  background-color: black;
-  width: 1120px;
-  height: 15px;
-  margin: 0 40px;
-  position: relative;
-}
-
-#prog_finish {
-  background-color: white;
-  width: 8px;
-  height: 15px;
-  margin-left: 1100px;
-}
-
-#track {
-  width: 1100px;
-  height: 420px;
-  background-color: black;
-  border: 10px solid black;
-  margin: 20px 40px;
-  position: relative;
-}
-
-#mini {
-  height: 30px;
-  bottom: 0;
-  position: absolute;
-}
-
-.lane {
-  width: 1100px;
-  height: 70px;
-}
-
-#ln1 {
-  background-color: rgb(247, 126, 111);
-  position: relative;
-  height:  70px;
-}
-
-#ln2 {
-  background-color: rgb(250, 192, 85);
-}
-
-#ln3 {
-  background-color: rgb(255, 255, 87);
-}
-
-#ln4 {
-  background-color: rgb(116, 211, 116);
-}
-
-#ln5 {
-  background-color: rgb(91, 147, 245);
-}
-
-#ln6 {
-  background-color: rgb(183, 123, 190);
-}
-
-#grid {
-  width: 1100px;
-  height: 420px;
-  position: absolute;
-  top: 153px;
-  left: 215px;
-}
-
-#grid div {
-  width: 98px;
-  height: 418px;
-  border: 1px solid black;
-  display: inline-block;
-  margin: 0;
-}
-
-#avatar {
-  width: 70px;
-  margin-left: 15px;
-  position: absolute;
-}
-
-#avatar_img {
-  width: 70px;
-}
-
-.center_announcement {
-  position: absolute;
-  width: 1100px;
-  top: 110px;
-
-}
-
-.center_text {
-  font-size: 65px;
-  color: rgb(217, 14, 14);
-  text-align: center;
-  margin: 0;
-}
-
-#finish{
-  height: 420px;
-  position: absolute;
-  left: 900px;
-}
-
-.obstacle {
-  position: absolute;
-  left: 900px;
-}
-
-#star {
-  display: none;
-  width: 70px;
-}
-
-.img {
-  height: 70px;
-}
-
-.wide {
-  width: 200px;
-}
-
-time {
-  color: yellow;
-}
-
-label {
-  color: violet;
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }
