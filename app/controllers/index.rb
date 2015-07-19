@@ -43,6 +43,6 @@ post '/users/update' do
 end
 
 get '/game' do
-  @current_user = current_user
+  # @current_user = current_user
   erb :game
 end
