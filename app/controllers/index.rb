@@ -1,6 +1,7 @@
 
 get '/' do
-  erb :index
+  # erb :index
+  redirect '/game'
 end
 
 get '/sessions/new/single' do
