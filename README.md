@@ -1,59 +1,27 @@
 # DBCycle
-Phase 2 Passion Project
 
-*Getting error messages back isn't working. Right now, I'm returning a weird thing to append to top.
-*same for login and create
-#ANSWER: JSON.parse the information that's coming back from .fail
+The game:  
+Getting to Dev BootCamp (DBC) on a bicycle is hard! Dodge buses, cars, and potholes and pick up coffee for a boost while you make your way to school.
 
-*Not validating passwords correctly
-#ANSWER: build validator in .js file because the password is not what is saved in the database.
+During my time at Dev Bootcamp, we were asked to develop projects we were passionate about. I decided to take on developing a video game manipulating DOM objects with JavaScript and jQuery. My goal was to improve my JS skills, and boy, did I. The code is not clean, nor is it perfect, but the game is playable and fun to view!
 
-GAME PLAN (hehehe)
-1) avatar can move
-  a) slide up and down 1/2 the image length
-  b) bound by top/bottom of lane
-2) objects come at you
-  a) how do they appear/generate
-  b) time/interval to move left
-3) objects and avatar collide
-  a) test .position().top == .position().top
-  b) test .position.left + width == .position().left
-4) finish line arrives after so many intervals
-  a) time stops when that event happens
+## Installation and Usage
+No installation is currently required. The application is currently deployed with heroko:  
+[Click here to play DBCycle!](https://powerful-sierra-1646.herokuapp.com/)
 
-*******MUST PUT OBJECT ON HTML THEN PUT SELECTOR IN OBJECTS ARRAY**************
-  /*****************
-GAME START
-1) run countdown (3 2 1 GO!)
-  a) run display 3, wait
-  b) run display 2, wait
-  c) run display 1, wait
-  d) run display GO, wait (3 secs have passed)
-  e) run display disappear, done
-2) start timer 3 sec after page load
-3) start game loop with counter 3 sec after page load
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
-  *************
-  ONE GAME LOOP
-  1) interval of 500ms
-  2) check if crash, run crash
-  3) check if win, break loop
-  4) if objects on left, disappear
-  5) move objects left
-  6) generate objects
-  7) move miniAvatar right
-  *************
+## History
+Basic skeleton app completed 5/25/15  
+Seeded with real theatre production and deployed 7/18/15  
 
-4) generate finishLine 10 loops shy of the end
+## Credits
+Images from [picgifs](picgifs.com)
 
-
-GAME FINISH
-*******************/
-
-
-
-IDEA: change game loop to add move function that allows each object only 11 cycles like finish line, then checks the locations, then either disappears them or runs crash
-
-add background image
-fix obstacle enter and exit
-make end screen
+## License
+Licenced MIT
