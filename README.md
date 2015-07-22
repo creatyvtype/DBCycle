@@ -6,9 +6,8 @@ Getting to Dev BootCamp (DBC) on a bicycle is hard! Dodge buses, cars, and potho
 During my time at Dev Bootcamp, we were asked to develop projects we were passionate about. I decided to take on developing a video game manipulating DOM objects with JavaScript and jQuery. My goal was to improve my JS skills, and boy, did I. The code is not clean, nor is it perfect, but the game is playable and fun to view!
 
 <img src=https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle1.png width=50%>
-![screenshot](https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle1.png =250x)
-![screenshot](https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle2.png)
-![screenshot](https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle3.png)
+<img src=https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle2.png width=50%>
+<img src=https://github.com/creatyvtype/DBCycle/blob/master/images/dbcycle3.png width=50%>
 
 ## Installation and Usage
 No installation is currently required. The application is currently deployed with heroko:  
