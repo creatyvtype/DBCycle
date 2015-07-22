@@ -17,8 +17,7 @@ No installation is currently required. The application is currently deployed wit
 5. Submit a pull request :D
 
 ## History
-Basic skeleton app completed 5/25/15  
-Seeded with real theatre production and deployed 7/18/15  
+Basic skeleton app completed 6/1/15  
 
 ## Credits
 Images from [picgifs](picgifs.com)
