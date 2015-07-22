@@ -27,4 +27,4 @@ Basic skeleton app completed 6/1/15
 Images from [picgifs](picgifs.com)
 
 ## License
-Licenced MIT
+Licensed MIT
